@@ -5,6 +5,7 @@
 #include <iostream>
 #include <map>
 #include <set>
+#include <algorithm>
 #include "AbstractFile.h"
 using namespace std;
 
@@ -14,4 +15,5 @@ public:
 	virtual int deleteFile(string filename) = 0;
 	virtual AbstractFile* openFile(string filename) = 0;
 	virtual int closeFile(AbstractFile* abstractFile) = 0;
+	virtual set<string> getFileNames() = 0;
 };

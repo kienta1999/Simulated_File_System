@@ -1,5 +1,6 @@
 // definition of ImageFile class here
 #include "ImageFile.h"
+#include "AbstractFileVisitor.h"
 
 ImageFile::ImageFile(string fileName) : name(fileName), size('0') {
 
@@ -37,7 +38,7 @@ int ImageFile::write(vector<char> charVect) {
 }
 
 int ImageFile::append(vector<char>) {
-	cout << "An image file should nnot support append" << endl;
+	cout << "An image file should not support append" << endl;
 	return static_cast<int>(status::noAppend);
 }
 
@@ -61,4 +62,14 @@ void ImageFile::accept(AbstractFileVisitor* afv) {
 	if (afv) {
 		afv->visit_ImageFile(this);
 	}
+}
+
+string ImageFile::getType() {
+	return "image";
+}
+
+AbstractFile* ImageFile::clone(string newName) {
+	AbstractFile* file = new ImageFile(newName + ".img");
+	file->write(this->read());
+	return file;
 }

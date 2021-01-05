@@ -10,6 +10,8 @@ public:
 	virtual unsigned int getSize();
 	virtual string getName();
 	virtual void accept(AbstractFileVisitor*);
+	virtual string getType();
+	virtual AbstractFile* clone(string);
 private:
 	string name;
 	vector<char> contents;

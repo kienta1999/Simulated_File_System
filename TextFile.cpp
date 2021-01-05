@@ -1,4 +1,5 @@
 #include "TextFile.h"
+#include "AbstractFileVisitor.h"
 
 //  Define the TextFile class here
 TextFile::TextFile(string fileName): name(fileName) {
@@ -32,8 +33,19 @@ vector<char> TextFile::read() {
 	return contents;
 }
 
+//need to know AbstractFileVisitor's functionality
 void TextFile::accept(AbstractFileVisitor* afv) {
 	if (afv) {
 		afv->visit_TextFile(this);
 	}
+}
+
+string TextFile::getType() {
+	return "text";
+}
+
+AbstractFile* TextFile::clone(string newName) {
+	AbstractFile* file = new TextFile(newName + ".txt");
+	file->write(this->read());
+	return file;
 }

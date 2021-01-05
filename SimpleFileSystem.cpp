@@ -44,3 +44,11 @@ int SimpleFileSystem::deleteFile(string filename) {
 		}
 	}
 }
+
+set<string> SimpleFileSystem::getFileNames() {
+	set <string> filesName;
+	for (auto itr = files.begin(); itr != files.end(); itr++) {
+		filesName.insert(itr->first);
+	}
+	return filesName;
+}

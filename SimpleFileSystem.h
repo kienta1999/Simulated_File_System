@@ -10,6 +10,7 @@ public:
 	virtual int deleteFile(string filename);
 	virtual AbstractFile* openFile(string filename);
 	virtual int closeFile(AbstractFile* abstractFile);
+	virtual set<string> getFileNames();
 private:
 	map<string, AbstractFile*> files;
 	set<AbstractFile*> openFiles; 

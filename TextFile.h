@@ -10,7 +10,9 @@ public:
 	virtual int append(vector<char>);
 	virtual unsigned int getSize();
 	virtual string getName();
+	virtual string getType();
 	virtual void accept(AbstractFileVisitor*);
+	virtual AbstractFile* clone(string newName);
 private:
 	string name;
 	vector<char> contents;

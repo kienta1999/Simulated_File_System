@@ -8,10 +8,10 @@ void BasicDisplayVisitor::visit_TextFile(TextFile* txt) {
 }
 
 void BasicDisplayVisitor::visit_ImageFile(ImageFile* img) {
-	int size_ = img->getSize();
+	int size_ = (int)sqrt(img->getSize());
 	for (int ver = 0; ver < size_; ver++) {
 		for (int hor = 0; hor < size_; hor++) {
-			int index = hor * img->getSize() + ver;
+			int index = ver * size_ + hor;
 			cout << img->read()[index];
 		}
 		cout << endl;

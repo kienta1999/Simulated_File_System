@@ -2,18 +2,13 @@
 #include "MetadataDisplayVisitor.h"
 
 void MetadataDisplayVisitor::visit_TextFile(TextFile* txt) {
-	for (int i = 0; i < txt->read().size(); i++) {
-		cout << txt->read()[i];
-	}
+	cout << txt->getName() << endl;
+	cout << txt->getSize() << endl;
+	cout << "text" << endl;
 }
 
 void MetadataDisplayVisitor::visit_ImageFile(ImageFile* img) {
-	int size_ = img->getSize();
-	for (int ver = 0; ver < size_; ver++) {
-		for (int hor = 0; hor < size_; hor++) {
-			int index = hor * img->getSize() + ver;
-			cout << img->read()[index];
-		}
-		cout << endl;
-	}
+	cout << img->getName() << endl;
+	cout << img->getSize() << endl;
+	cout << "image" << endl;
 }
